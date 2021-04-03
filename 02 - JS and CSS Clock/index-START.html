@@ -1,12 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>JS + CSS Clock</title>
-</head>
-<body>
-
-
+  <head>
+    <meta charset="UTF-8" />
+    <title>JS + CSS Clock</title>
+  </head>
+  <body>
     <div class="clock">
       <div class="clock-face">
         <div class="hand hour-hand"></div>
@@ -15,60 +13,91 @@
       </div>
     </div>
 
+    <style>
+      html {
+        background: #018ded url(https://unsplash.it/1500/1000?image=881&blur=5);
+        background-size: cover;
+        font-family: "helvetica neue";
+        text-align: center;
+        font-size: 10px;
+      }
 
-  <style>
-    html {
-      background: #018DED url(https://unsplash.it/1500/1000?image=881&blur=5);
-      background-size: cover;
-      font-family: 'helvetica neue';
-      text-align: center;
-      font-size: 10px;
-    }
+      body {
+        margin: 0;
+        font-size: 2rem;
+        display: flex;
+        flex: 1;
+        min-height: 100vh;
+        align-items: center;
+      }
 
-    body {
-      margin: 0;
-      font-size: 2rem;
-      display: flex;
-      flex: 1;
-      min-height: 100vh;
-      align-items: center;
-    }
+      .clock {
+        width: 30rem;
+        height: 30rem;
+        border: 20px solid white;
+        border-radius: 50%;
+        margin: 50px auto;
+        position: relative;
+        padding: 2rem;
+        box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.1), inset 0 0 0 3px #efefef,
+          inset 0 0 10px black, 0 0 10px rgba(0, 0, 0, 0.2);
+      }
 
-    .clock {
-      width: 30rem;
-      height: 30rem;
-      border: 20px solid white;
-      border-radius: 50%;
-      margin: 50px auto;
-      position: relative;
-      padding: 2rem;
-      box-shadow:
-        0 0 0 4px rgba(0,0,0,0.1),
-        inset 0 0 0 3px #EFEFEF,
-        inset 0 0 10px black,
-        0 0 10px rgba(0,0,0,0.2);
-    }
+      .clock-face {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        transform: translateY(
+          -3px
+        ); /* account for the height of the clock hands */
+      }
 
-    .clock-face {
-      position: relative;
-      width: 100%;
-      height: 100%;
-      transform: translateY(-3px); /* account for the height of the clock hands */
-    }
+      .hand {
+        width: 50%;
+        height: 6px;
+        background: black;
+        position: absolute;
+        top: 50%;
+        transform: rotate(
+          90deg
+        ); /* to make clock hands vertical. But by default,it is going to rotate itself on the exact middle of the element. */
+        transform-origin: 100%; /*We want to rotate it on the very right hand side. Transform-origin CSS proprty sets the origin for an element's transformations. Changing the value from 50% to 100% shifts the point of origin for the transformation to the furthest point on the x-axis of the HTML element.
+      */
+        transition: all 0.05s;
+        transition-timing-function: cubic-bezier(
+          0.165,
+          0.84,
+          0.44,
+          1
+        ); /*ticking function*/
+      }
+    </style>
 
-    .hand {
-      width: 50%;
-      height: 6px;
-      background: black;
-      position: absolute;
-      top: 50%;
-    }
+    <script>
+      const hourHand = document.querySelector(".hour-hand");
+      const minHand = document.querySelector(".min-hand");
+      const secondHand = document.querySelector(".second-hand");
 
-  </style>
+      const calcRotateHour = function () {
+        const now = new Date(); // grab the date
+        //seconds
+        let second = now.getSeconds();
+        let secondDegree =
+          (second / 60) * 360 +
+          90; /* 90 degrees added to compansate for the shift at the beginning)*/
+        secondHand.style.transform = `rotate(${secondDegree}deg)`;
 
-  <script>
+        //minutes
+        let minute = now.getMinutes();
+        let minDegree = (minute / 60) * 360 + (second / 60) * 6 + 90; //Because every min. minHand should change its location 6 degree. To reach 360 degree at the end.
+        minHand.style.transform = `rotate(${minDegree}deg)`;
 
-
-  </script>
-</body>
+        //hour
+        let hour = now.getHours();
+        let hourDegree = (hour / 12) * 360 + (minute / 60) * 30 + 90; // (minute/60) *30 means every minute, the hourHand should also proceed. 360/12 =30 therefore to find how much degree should hourDegree change, we should calculate and add this to the hourDegree as well. So, every hour hourHand should change its location 30 degree to reach 360 degree at the end.
+        hourHand.style.transform = `rotate(${hourDegree}deg)`;
+      };
+      setInterval(calcRotateHour, 1000);
+    </script>
+  </body>
 </html>
