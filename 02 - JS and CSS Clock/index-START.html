@@ -81,10 +81,13 @@
       const calcRotateHour = function () {
         const now = new Date(); // grab the date
         //seconds
+
         let second = now.getSeconds();
-        let secondDegree =
-          (second / 60) * 360 +
-          90; /* 90 degrees added to compansate for the shift at the beginning)*/
+        /* 90 degrees added to compansate for the shift at the beginning)*/
+        let secondDegree = (second / 60) * 360 + 90;
+        // if(secondDegree===90){
+        //   secondHand.style()
+        // }
         secondHand.style.transform = `rotate(${secondDegree}deg)`;
 
         //minutes
