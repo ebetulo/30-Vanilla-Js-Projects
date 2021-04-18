@@ -10,7 +10,7 @@ I also recommend following [Nitish Dayal's Text Guides](https://github.com/nitis
 
 Grab the course at [https://JavaScript30.com](https://JavaScript30.com)
 
-## 31-46 // 15 Basic JavaScript Projects by John Smilga
+## 31-45 // 15 Basic JavaScript Projects by John Smilga
 
 My versions of [John Smilga's JavaScript Basic Projects](https://github.com/john-smilga/javascript-basic-projects)! Just clone the repo and get started in the master branch if you want to take the challenge!
 
