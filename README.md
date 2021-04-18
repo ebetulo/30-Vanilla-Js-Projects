@@ -18,6 +18,6 @@ I also recommend watching [the video](https://www.youtube.com/watch?v=3PHXvlpOkf
 
 ### My Solutions
 
-| Projects            |                                                 Solutions                                                  |
-| ------------------- | :--------------------------------------------------------------------------------------------------------: |
-| JavaScript Drum Kit | [Link](https://ebetulo.github.io/30-Vanilla-Js-Projects/01%20-%20JavaScript%20Drum%20Kit/index-START.html) |
+| Projects            |                                                Solutions                                                |
+| ------------------- | :-----------------------------------------------------------------------------------------------------: |
+| JavaScript Drum Kit | [Link](https://ebetulo.github.io/Vanilla-Js-Projects/01%20-%20JavaScript%20Drum%20Kit/index-START.html) |
