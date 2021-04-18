@@ -1,4 +1,4 @@
-﻿![](https://javascript30.com/images/JS3-social-share.png)
+﻿![](https://codersera.com/blog/wp-content/uploads/2020/10/Purple-and-Pink-Geometric-Technology-Facebook-Cover.png)
 
 # Vanilla Javascript Projects
 
